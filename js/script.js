@@ -31,11 +31,23 @@ const slides = [
 const app = new Vue({
     el: '#app',
     data: {
-        pathImage: 'img/01.jpg',
+        slides,
+        activeIndex: 0,
     },
     methods: {
-        previousImage: function () {
-            this.pathImage = this.slides.image;
+        prevImage(){
+            if (this.activeIndex > 0) {
+                this.activeIndex--;
+            } else {
+                this.activeIndex = this.slides.length -1;
+            }
+        },
+        nextImage(){
+            if (this.activeIndex === this.slides.length -1) {
+                this.activeIndex = 0;
+            } else {
+                this.activeIndex++;
+            }
         }
     }
 });

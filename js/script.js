@@ -35,19 +35,22 @@ const app = new Vue({
         activeIndex: 0,
     },
     methods: {
-        prevImage(){
+        prevImage() {
             if (this.activeIndex > 0) {
                 this.activeIndex--;
             } else {
-                this.activeIndex = this.slides.length -1;
+                this.activeIndex = this.slides.length - 1;
             }
         },
-        nextImage(){
-            if (this.activeIndex === this.slides.length -1) {
+        nextImage() {
+            if (this.activeIndex === this.slides.length - 1) {
                 this.activeIndex = 0;
             } else {
                 this.activeIndex++;
             }
+        },
+        itemSelected(index) {
+            this.activeIndex = index;
         }
     }
 });
